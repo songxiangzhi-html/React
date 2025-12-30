@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './index.css'
+import hello from './index.module.css'
 export default class Hello extends Component {
   render() {
-    return <h1 className="title">Hello, React!222333</h1>
+    return <h1 className={hello.title}>Hello, React!222333</h1>
   }
 }
