@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Welcome.css'
+import './index.css'
 export default class Welcome extends Component {
-  render () {
-    return <h1 class='demo'>Welcome</h1>
+  render() {
+    return <h1 class="demo">Welcome</h1>
   }
 }
