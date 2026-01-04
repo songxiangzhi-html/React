@@ -1,21 +1,27 @@
 import React, { Component } from 'react'
+import PubSub from 'pubsub-js'
 import axios from 'axios'
 
 export default class header extends Component {
   // http://192.168.1.10:3000/api/search/users?q=${keyWordNode.value}
   // https://github.com/search/users?q=
   search = () => {
+    PubSub.publish('userList', { name: 'search', age: 18 })
     const { keyWordNode } = this
-    console.log(keyWordNode.value)
-    this.props.updateAppState({ isFirst: false, isLoading: true })
+    // this.props.updateAppState({ isFirst: false, isLoading: true })
+    PubSub.publish('userList', { isFirst: false, isLoading: true })
+
     axios
       .get(`http://192.168.1.10:3000/api/search/github?q=${keyWordNode.value}`)
       .then((res) => {
         console.log(res)
-        this.props.updateAppState({ isLoading: false, users: res.data.items })
+        // this.props.updateAppState({ isLoading: false, users: res.data.items })
+        PubSub.publish('userList', { isLoading: false, users: res.data.items })
       })
       .catch((err) => {
-        this.props.updateAppState({ isLoading: false, err: err })
+        // this.props.updateAppState({ isLoading: false, err: err })
+        PubSub.publish('userList', { isLoading: false, err: err })
+
         console.log(err)
       })
   }
