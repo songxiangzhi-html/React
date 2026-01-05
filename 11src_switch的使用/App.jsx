@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import About from './pages/About/about'
 import Home from './pages/Home/home'
 import Header from './components/Header'
 import MyNavLink from './components/MyNavLink'
+import Test from './pages/Test/index'
 export default class App extends Component {
   render() {
     return (
@@ -28,11 +29,12 @@ export default class App extends Component {
           <div className="col-xs-6">
             <div className="panel">
               <div className="panel-body">
+                {/* Switch的用法：只匹配其中一个*/}
                 <Switch>
                   {/* 注册路由 */}
                   <Route path="/about" component={About} />
                   <Route path="/home" component={Home} />
-                  <Redirect to="/about" />
+                  <Route path="/home" component={Test} />
                 </Switch>
               </div>
             </div>

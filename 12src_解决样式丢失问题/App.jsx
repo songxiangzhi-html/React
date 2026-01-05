@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import About from './pages/About/about'
 import Home from './pages/Home/home'
 import Header from './components/Header'
@@ -19,10 +19,10 @@ export default class App extends Component {
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
               {/* 路由链接 */}
-              <MyNavLink to="/about" a={1} b={2}>
+              <MyNavLink to="/atguigu/about" a={1} b={2}>
                 About
               </MyNavLink>
-              <MyNavLink to="/home">Home</MyNavLink>
+              <MyNavLink to="/atguigu/home">Home</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
@@ -30,9 +30,8 @@ export default class App extends Component {
               <div className="panel-body">
                 <Switch>
                   {/* 注册路由 */}
-                  <Route path="/about" component={About} />
-                  <Route path="/home" component={Home} />
-                  <Redirect to="/about" />
+                  <Route path="/atguigu/about" component={About} />
+                  <Route path="/atguigu/home" component={Home} />
                 </Switch>
               </div>
             </div>
